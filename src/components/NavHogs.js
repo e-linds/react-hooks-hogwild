@@ -50,7 +50,7 @@ function NavHogs({ hogs, hogsArray, setHogsArray }) {
         const weightSortedHogs = hogsArray.sort((a,b) => {
             const x = parseFloat(a.weight)
             const y = parseFloat(b.weight)
-            return ((x < y) ? -1 : ((x > y ? 1 : 0)))
+            return ((x > y) ? -1 : ((x < y ? 1 : 0)))
         })
 
         setHogsArray(hogsArray = [...weightSortedHogs])

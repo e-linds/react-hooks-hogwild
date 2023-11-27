@@ -6,6 +6,7 @@ function AddNewHog({ hogsArray, setHogsArray }) {
     const [newSpecialty, setNewSpecialty] = useState("")
     const [newGreased, setNewGreased] = useState(false)
     const [newWeight, setNewWeight] = useState("")
+    const [newHighestMedal, setNewHighestMedal] = useState("")
     const [newImage, setNewImage] = useState("")
 
     function handleNameInput(e) {
@@ -28,6 +29,10 @@ function AddNewHog({ hogsArray, setHogsArray }) {
         setNewImage(e.target.value)
     }
 
+    function handleHighestMedalInput(e) {
+        setNewHighestMedal(e.target.value)
+    }
+
 
     function handleFormSubmit(e) {
         e.preventDefault()
@@ -38,7 +43,9 @@ function AddNewHog({ hogsArray, setHogsArray }) {
                 specialty: newSpecialty,
                 greased: newGreased,
                 weight: newWeight,
-                image: newImage
+                image: newImage,
+                "highest medal achieved": newHighestMedal
+
             }
     
             setHogsArray([...hogsArray, newHog])
@@ -48,6 +55,7 @@ function AddNewHog({ hogsArray, setHogsArray }) {
             setNewGreased(false)
             setNewWeight("")
             setNewImage("")
+            setNewHighestMedal("")
 
         
     }
@@ -66,8 +74,9 @@ function AddNewHog({ hogsArray, setHogsArray }) {
             <br></br>
             <input name="weight" placeholder="Weight" type="text" value={newWeight} onChange={(e) => handleWeightInput(e)}></input>
             <br></br>
-            <input name="image" placeholder="image url" type="text" value={newImage} onChange={(e) => handleImageInput(e)}></input>
+            <input name="image" placeholder="Image link" type="text" value={newImage} onChange={(e) => handleImageInput(e)}></input>
             <br></br>
+            <input name="highest-medal" placeholder="Highest Medal Achieved" type="text" value={newHighestMedal} onChange={(e) => handleHighestMedalInput(e)}></input>
             <button type="submit">Add New Hog</button>
         </form>
         </div>
