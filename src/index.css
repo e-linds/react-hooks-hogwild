@@ -89,6 +89,12 @@ ul {
   outline: #3B0B0B dotted thick;
   transition: 0.75s;
   opacity: 1;
+  
+}
+
+.pigTile img {
+  max-width: 200px;
+
 }
 
 .minBackgroundSneak {
@@ -149,4 +155,17 @@ ul {
   to {
     transform: rotate(360deg);
   }
+}
+
+.mainDisplay {
+  padding: 10px;
+}
+
+.newHogForm {
+  float: right;
+  width: 20%
+}
+
+.newHogForm input {
+  margin: 5px;
 }

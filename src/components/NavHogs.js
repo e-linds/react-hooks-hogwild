@@ -57,6 +57,14 @@ function NavHogs({ hogs, hogsArray, setHogsArray }) {
     
     }
 
+    function hideHog(clickedHog) {
+        const newHogsArray = hogsArray.filter((each) => {
+            return each !== clickedHog
+        })
+
+        setHogsArray(newHogsArray)
+    }
+
 
     return (
         <>
@@ -65,18 +73,20 @@ function NavHogs({ hogs, hogsArray, setHogsArray }) {
             <button onClick={sortByName}>Sort By Name</button>
             <button onClick={sortByWeight}>Sort By Weight</button>
         </div>
+        <AddNewHog hogsArray={hogsArray} setHogsArray={setHogsArray}/>
         <MainDisplay currentHog={currentHog}/>
         <div className="ui grid container">
         {hogsArray.map((hog) => {
             return (
-                <div onClick={() => clickNewHog(hog)} className="PigTile" key={hog.name}>
+                <div onClick={() => clickNewHog(hog)} className="pigTile" key={hog.name}>
                     <p>{hog.name}</p>
                     <img src={hog.image}></img>
+                    <button onClick={() => hideHog(hog)}>Hide Hog</button>
                 </div>
             )
         })}
         </div>
-        <AddNewHog />
+        
         </>
     )
 
